@@ -8,3 +8,4 @@ public/components
 vendor
 
 .idea
+.phpunit.result.cache

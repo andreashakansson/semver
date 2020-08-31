@@ -92,6 +92,24 @@ class Packagist
     }
 
     /**
+     * @param string $vendor
+     * @param string $package
+     * @param string $constraint
+     *
+     * @return array
+     */
+    public function getAbandonedInfo($vendor, $package)
+    {
+        $versions = $this->getRawVersions($vendor, $package);
+        if (array_key_exists(0, $versions)) {
+            return [
+                'abandoned' => $versions['0']->isAbandoned(),
+                'replacementPackage' => $versions['0']->getReplacementPackage()
+            ];
+        }
+    }
+
+    /**
      * Given a concrete package, this returns a ~ constraint (in the future a ^ constraint)
      * that should be used, for example, in composer.json.
      *

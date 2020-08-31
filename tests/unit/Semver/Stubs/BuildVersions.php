@@ -32,4 +32,32 @@ trait BuildVersions
             $firstVersion,
         ];
     }
+
+    /**
+     * @return array
+     */
+    private function buildVersionsAbandoned()
+    {
+        $source = new Source();
+        $source->fromArray(['url' => 'http://lorem.ipsum']);
+
+        $firstVersion = new Version();
+        $firstVersion->fromArray([
+            'source' => $source,
+            'version' => '0.2.2',
+            'abandoned' => true
+        ]);
+
+        $secondVersion = new Version();
+        $secondVersion->fromArray([
+            'source' => $source,
+            'version' => '0.2.1',
+            'abandoned' => true
+        ]);
+
+        return [
+            $secondVersion,
+            $firstVersion,
+        ];
+    }
 }
