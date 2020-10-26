@@ -17,7 +17,7 @@
 		"filp/whoops": "^2.1",
 		"illuminate/cache": "^8.11",
 		"illuminate/filesystem": "^8.11",
-		"knplabs/packagist-api": "^1.6",
+		"knplabs/packagist-api": "dev-laravel8",
 		"league/container": "^3.3",
 		"league/plates": "^3.1",
 		"league/route": "^4.3",
@@ -28,6 +28,12 @@
 		"phpunit/phpunit": "^9.3",
 		"symfony/var-dumper": "^5.1"
 	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:andreashakansson/packagist-api.git"
+		}
+	],
 	"autoload": {
 		"psr-4": {
 			"Semver\\": "app/Semver"
