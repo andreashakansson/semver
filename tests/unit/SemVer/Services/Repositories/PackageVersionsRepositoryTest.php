@@ -6,18 +6,18 @@ use Mockery;
 use Packagist\Api\Client;
 use Packagist\Api\Result\Package;
 use Packagist\Api\Result\Package\Version;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Semver\Services\Repositories\PackageVersionsRepository;
 use Semver\Unit\Stubs\BuildVersions;
 
-class PackageVersionsRepositoryTest extends PHPUnit_Framework_TestCase
+class PackageVersionsRepositoryTest extends TestCase
 {
     use BuildVersions;
 
     /**
      * Tear down.
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }

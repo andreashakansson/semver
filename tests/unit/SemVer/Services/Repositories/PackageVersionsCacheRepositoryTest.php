@@ -5,11 +5,12 @@ namespace Semver\Unit\Services\Repositories;
 use Illuminate\Cache\NullStore;
 use Illuminate\Cache\Repository;
 use Mockery;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Semver\Contracts\Repositories\PackageVersionsRepository;
 use Semver\Services\Repositories\PackageVersionsCacheRepository;
 
-class PackageVersionsCacheRepositoryTest extends PHPUnit_Framework_TestCase
+
+class PackageVersionsCacheRepositoryTest extends TestCase
 {
     /**
      * @var PackageVersionsRepository|Mockery\Mock
@@ -29,7 +30,7 @@ class PackageVersionsCacheRepositoryTest extends PHPUnit_Framework_TestCase
     /**
      * Set up.
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->innerRepository = Mockery::mock(PackageVersionsRepository::class);
         $this->cache = Mockery::mock(Repository::class.'[get, put]', [new NullStore()])->makePartial();
@@ -39,7 +40,7 @@ class PackageVersionsCacheRepositoryTest extends PHPUnit_Framework_TestCase
     /**
      * Tear down.
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }
